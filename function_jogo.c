@@ -1,36 +1,33 @@
 #include <stdio.h>
 
-int validar(char c)
+int ehValido(char c)
 {
-    if(c == 'X' || c == 'O')
-        return 1;
-
-    return 0;
+    return c == 'X' || c == 'O';
 }
 
-void gravar(char matriz[3][3], char nomeArquivo[])
+void salvarTabuleiro(char matriz[3][3], char nomeArquivo[])
 {
-    FILE *arquivo;
+    FILE *arq;
 
-    arquivo = fopen(nomeArquivo, "w");
+    arq = fopen(nomeArquivo, "w");
 
-    if(arquivo == NULL)
+    if(arq == NULL)
     {
-        printf("Erro ao criar arquivo\n");
+        printf("Erro ao abrir arquivo.\n");
         return;
     }
 
-    fprintf(arquivo, "| %c | %c | %c |\n",
-            matriz[0][0], matriz[0][1], matriz[0][2]);
+    for(int i = 0; i < 3; i++)
+    {
+        fprintf(arq,
+                "| %c | %c | %c |\n",
+                matriz[i][0],
+                matriz[i][1],
+                matriz[i][2]);
+    }
 
-    fprintf(arquivo, "| %c | %c | %c |\n",
-            matriz[1][0], matriz[1][1], matriz[1][2]);
+    fprintf(arq, "\n");
+    fprintf(arq, "Criado por Davi Sales");
 
-    fprintf(arquivo, "| %c | %c | %c |\n",
-            matriz[2][0], matriz[2][1], matriz[2][2]);
-
-    fprintf(arquivo, "\n");
-    fprintf(arquivo, "Criado por Davi Sales");
-
-    fclose(arquivo);
+    fclose(arq);
 }
