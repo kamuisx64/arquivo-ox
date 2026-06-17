@@ -24,4 +24,4 @@ jobs:
       run: gcc test_arquivo-ox.c -o test_arquivo-ox
 
     - name: Executar testes
-      run: ./teste
+      run: ./test_arquivo-ox
