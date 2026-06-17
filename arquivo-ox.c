@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "function_tabu.c"
 int ehValido(char c);
 void salvarTabuleiro(char matriz[3][3], char nomeArquivo[]);
 
