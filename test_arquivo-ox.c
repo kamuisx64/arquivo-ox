@@ -1,14 +1,14 @@
 #include <assert.h>
 
-int validar(char c);
+int ehValido(char c);
 
 int main()
 {
-    assert(validar('X') == 1);
-    assert(validar('O') == 1);
+    assert(ehValido('X'));
+    assert(ehValido('O'));
 
-    assert(validar('A') == 0);
-    assert(validar('x') == 0);
+    assert(!ehValido('A'));
+    assert(!ehValido('x'));
 
     return 0;
 }
