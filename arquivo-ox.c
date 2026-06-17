@@ -1,18 +1,17 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int validar(char c);
-void gravar(char matriz[3][3], char nomeArquivo[]);
+int ehValido(char c);
+void salvarTabuleiro(char matriz[3][3], char nomeArquivo[]);
 
 int main(int argc, char *argv[])
 {
     char matriz[3][3];
     int i, j;
-    int k = 2;
+    int pos = 2;
 
     if(argc != 11)
     {
-        printf("Uso: %s arquivo.txt O O O X X X O O O\n", argv[0]);
+        printf("Uso incorreto.\n");
         return 1;
     }
 
@@ -20,19 +19,19 @@ int main(int argc, char *argv[])
     {
         for(j = 0; j < 3; j++)
         {
-            matriz[i][j] = argv[k][0];
+            matriz[i][j] = argv[pos][0];
 
-            if(!validar(matriz[i][j]))
+            if(ehValido(matriz[i][j]) == 0)
             {
-                printf("Erro: use apenas X ou O\n");
+                printf("Somente X e O.\n");
                 return 1;
             }
 
-            k++;
+            pos++;
         }
     }
 
-    gravar(matriz, argv[1]);
+    salvarTabuleiro(matriz, argv[1]);
 
     return 0;
 }
