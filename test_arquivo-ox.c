@@ -1,5 +1,5 @@
 #include <assert.h>
-
+#include "function_tabu.c"
 int ehValido(char c);
 
 int main()
